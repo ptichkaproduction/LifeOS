@@ -3,24 +3,27 @@
 using System;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Text.Json;
 using System.Xml.Schema;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LifeOS
 {
     internal class t3stCore
     {
-        static void Main(string[] args)
+        public void core()
         {
 
             string device = Environment.MachineName;
             string buffer = "";
+            string buffer_text = "";
             DateTime now = DateTime.Now;
             bool start = true;
 
             try
             {
-                Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine("Loaded!"); Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine("Loading completed succsessfully!"); Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("Welcome to "); Console.ForegroundColor = ConsoleColor.Green; Console.Write("Life"); Console.ForegroundColor = ConsoleColor.White; Console.Write("OS!\n-------\n");
             }
             catch
@@ -46,12 +49,13 @@ namespace LifeOS
 
                     case "help":
                         Console.WriteLine(@"
-Total commands: 5
+Total commands: 6
 
 help - help list
 time - print time and date
 ver - print app version
 clear - clear screen
+echo - print your text
 exit - exit from 'OS'
 ");
                         break;
@@ -80,6 +84,32 @@ exit - exit from 'OS'
                         break;
 
                     case "":
+                        break;
+
+                    case "testAnimation":
+                        Console.Clear();
+                        Console.WriteLine("O");
+                        Thread.Sleep(100);
+                        Console.Clear();
+                        Console.WriteLine("o");
+                        Thread.Sleep(100);
+                        Console.Clear();
+                        Console.WriteLine("O");
+                        Thread.Sleep(100);
+                        Console.Clear();
+                        Console.WriteLine("o");
+                        Thread.Sleep(100);
+                        Console.Clear();
+                        break;
+
+                    case "echo":
+                        try
+                        {
+                            Console.Write("Enter text: ");
+                            buffer_text = Console.ReadLine();
+                            Console.WriteLine(buffer_text);
+                        }
+                        catch (Exception e) { Console.WriteLine("Unknown err"); }
                         break;
                 }
             }
