@@ -23,8 +23,7 @@ namespace LifeOS
 
             try
             {
-                Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine("Loading completed succsessfully!"); Console.ForegroundColor = ConsoleColor.White;
-                Console.Write("Welcome to "); Console.ForegroundColor = ConsoleColor.Green; Console.Write("Life"); Console.ForegroundColor = ConsoleColor.White; Console.Write("OS!\n-------\n");
+                Console.Write("-------\nWelcome to "); Console.ForegroundColor = ConsoleColor.Green; Console.Write("Life"); Console.ForegroundColor = ConsoleColor.White; Console.Write("OS!\nVer 0.02 pre-alpha\n-------\n");
             }
             catch
             {
@@ -62,7 +61,7 @@ exit - exit from 'OS'
 
                     case "ver":
                          Console.Write(@"  _     _  __       ___  ____  
- | |   (_)/ _| ___ / _ \/ ___|  LifeOS ver 0.01 pre-alpha (August 2025)
+ | |   (_)/ _| ___ / _ \/ ___|  LifeOS ver 0.02 pre-alpha (August 2025)
  | |   | | |_ / _ \ | | \___ \  Created by perryBalo0n
  | |___| |  _|  __/ |_| |___) | Based on C# (CSharp)
  |_____|_|_|  \___|\___/|____/
@@ -77,6 +76,13 @@ exit - exit from 'OS'
                     case "exit":
                         Console.WriteLine("Exiting...");
                         start = false;
+                        break;
+
+                    case "reboot":
+                        Console.WriteLine("Rebooting...");
+                        start = false;
+                        var core = new t3stCore();
+                        core.core();
                         break;
 
                     case "time":
